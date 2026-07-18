@@ -17,5 +17,9 @@ def health_head():
 
 @app.post("/")
 def guardrail(request: dict):
-    result = evaluate(request)
-    return JSONResponse(content=result)
+    return JSONResponse(content=evaluate(request))
+
+
+@app.post("/check")
+def guardrail_check(request: dict):
+    return JSONResponse(content=evaluate(request))
